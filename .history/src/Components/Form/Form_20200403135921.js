@@ -13,39 +13,16 @@ export default class Form extends React.Component {
         this.priceChangeHandler = this.priceChangeHandler.bind(this)
         this.imgChangeHandler = this.imgChangeHandler.bind(this)
         this.resetButton = this.resetButton.bind(this)
-        this.addProduct = this.addProduct.bind(this)
-    }
-
-    componentDidUpdate(oldProps, oldState) {
-        if (oldProps !== this.props) {
-            this.getProduct(this.props.selected)
-        }
-    }
-
-    getProduct(id) {
-        axios.get(`/api/current/${id}`).then (res => {
-            this.setState({
-                name: res.name,
-                price: res.price,
-                img: res.img
-            })
-        })
-    }
-
-    setOnState(id) {
-
     }
 
     addProduct() {
-        axios.post('/api/product', {
-            name: this.state.name,
-            price: this.state.price,
-            image: this.state.img
-        }).then(res => {
+        axios.post(`/api/product?name=${this.state.name}`).then(res => {
             this.props.getInventory()
-            this.resetButton()
         })
     }
+
+
+
 
     nameChangeHandler(e) {
         this.setState({
@@ -91,9 +68,7 @@ export default class Form extends React.Component {
                     onChange={e => this.imgChangeHandler(e)}
                     placeholder='Image URL'
                 ></input>
-                <button
-                    onClick={this.addProduct}
-                >Add to Inventory</button>
+                <button>Add</button>
                 <button
                     onClick={this.resetButton}
                 >Clear</button>

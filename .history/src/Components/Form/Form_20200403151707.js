@@ -16,25 +16,15 @@ export default class Form extends React.Component {
         this.addProduct = this.addProduct.bind(this)
     }
 
-    componentDidUpdate(oldProps, oldState) {
-        if (oldProps !== this.props) {
-            this.getProduct(this.props.selected)
-        }
-    }
-
-    getProduct(id) {
-        axios.get(`/api/current/${id}`).then (res => {
-            this.setState({
-                name: res.name,
-                price: res.price,
-                img: res.img
-            })
-        })
-    }
-
-    setOnState(id) {
-
-    }
+    // componentDidUpdate(old) {
+    //     if (this.props.selected !== old) {
+    //         this.setState({
+    //             name: '',
+    //             price: '',
+    //             img: ''
+    //         })
+    //     }
+    // }
 
     addProduct() {
         axios.post('/api/product', {

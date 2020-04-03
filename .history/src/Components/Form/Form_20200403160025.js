@@ -18,12 +18,12 @@ export default class Form extends React.Component {
 
     componentDidUpdate(oldProps, oldState) {
         if (oldProps !== this.props) {
-            this.getProduct(this.props.selected)
+            
         }
     }
 
     getProduct(id) {
-        axios.get(`/api/current/${id}`).then (res => {
+        axios.get(`/api/delete/${id}`).then (res => {
             this.setState({
                 name: res.name,
                 price: res.price,

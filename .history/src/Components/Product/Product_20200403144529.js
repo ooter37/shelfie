@@ -6,7 +6,7 @@ export default class Product extends React.Component {
         super(props)
     }
     render() {
-        const {product, price, img, deleteProduct, id, setSelected} = this.props
+        const {product, price, img, deleteProduct, id} = this.props
         return (
             <div className='product-component'>
                 <h1>{product}</h1>
@@ -17,11 +17,6 @@ export default class Product extends React.Component {
                         deleteProduct(id)
                     }}
                 >delete</button>
-                <button
-                    onClick={() => {
-                        setSelected(id)
-                    }}
-                >edit</button>
             </div>
         )
     }

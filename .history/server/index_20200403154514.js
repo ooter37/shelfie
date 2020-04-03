@@ -7,7 +7,7 @@ app.use(express.json())
 
 const {SERVER_PORT, CONNECTION_STRING} = process.env
 const controller = require('./controller')
-const {addProduct, getInventory, deleteProduct, currentProduct} = require('./controller')
+const {addProduct, getInventory, deleteProduct} = require('./controller')
 
 massive({
     connectionString: CONNECTION_STRING,
@@ -25,4 +25,4 @@ app.listen(SERVER_PORT, () => {
 app.get('/api/inventory', getInventory)
 app.post('/api/product', addProduct)
 app.delete('/api/delete/:id', deleteProduct)
-app.get('/api/current/:id', currentProduct)
+app.get('/api/')

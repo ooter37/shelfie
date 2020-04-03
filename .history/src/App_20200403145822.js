@@ -14,7 +14,6 @@ export default class App extends React.Component {
       selected: null
     }
     this.getInventory = this.getInventory.bind(this)
-    this.setSelected = this.setSelected.bind(this)
   }
 
   componentDidMount() {
@@ -26,13 +25,6 @@ export default class App extends React.Component {
         inventory: res.data
       })
       }).catch(err => console.log(err))
-  }
-
-  setSelected(edit) {
-    this.setState({
-      selected: edit
-    })
-    console.log(this.state.selected)
   }
 
   render() {
@@ -48,7 +40,6 @@ export default class App extends React.Component {
         <Dashboard 
         inventory={this.state.inventory}
         getInventory={this.getInventory}
-        setSelected={this.setSelected}
         />
       </div>
     </div>

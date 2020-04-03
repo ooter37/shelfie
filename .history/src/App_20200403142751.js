@@ -10,11 +10,9 @@ export default class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      inventory: [],
-      selected: null
+      inventory: []
     }
     this.getInventory = this.getInventory.bind(this)
-    this.setSelected = this.setSelected.bind(this)
   }
 
   componentDidMount() {
@@ -28,28 +26,19 @@ export default class App extends React.Component {
       }).catch(err => console.log(err))
   }
 
-  setSelected(edit) {
-    this.setState({
-      selected: edit
-    })
-    console.log(this.state.selected)
-  }
-
   render() {
     console.log(this.state.inventory)
   return (
     <div className="App">
       <Header/>
-      <div className='dashboard-and-form'>
-        <Form
-          getInventory={this.getInventory}
-          selected={this.state.selected}
-          />
-        <Dashboard 
-        inventory={this.state.inventory}
+      <div>
+
+      <Form
         getInventory={this.getInventory}
-        setSelected={this.setSelected}
         />
+      <Dashboard 
+      inventory={this.state.inventory}
+      />
       </div>
     </div>
   );

@@ -32,7 +32,6 @@ export default class App extends React.Component {
     this.setState({
       selected: edit
     })
-    console.log(this.state.selected)
   }
 
   render() {

@@ -26,7 +26,6 @@ deleteProduct(id) {
                     img={elem.img}
                     deleteProduct={this.deleteProduct}
                     id={elem.id}
-                    setSelected={this.props.setSelected}
                 />
                 </div>
             )

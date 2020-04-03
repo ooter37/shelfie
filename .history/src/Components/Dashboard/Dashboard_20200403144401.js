@@ -6,7 +6,6 @@ export default class Dashboard extends React.Component {
     // eslint-disable-next-line
     constructor(props) {
         super(props)
-        this.deleteProduct = this.deleteProduct.bind(this)
     }
 
 deleteProduct(id) {
@@ -25,8 +24,6 @@ deleteProduct(id) {
                     price={elem.price}
                     img={elem.img}
                     deleteProduct={this.deleteProduct}
-                    id={elem.id}
-                    setSelected={this.props.setSelected}
                 />
                 </div>
             )

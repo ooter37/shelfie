@@ -32,7 +32,6 @@ export default class App extends React.Component {
     this.setState({
       selected: edit
     })
-    console.log(this.state.selected)
   }
 
   render() {
@@ -48,7 +47,6 @@ export default class App extends React.Component {
         <Dashboard 
         inventory={this.state.inventory}
         getInventory={this.getInventory}
-        setSelected={this.setSelected}
         />
       </div>
     </div>

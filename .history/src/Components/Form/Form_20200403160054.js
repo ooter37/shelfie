@@ -23,7 +23,7 @@ export default class Form extends React.Component {
     }
 
     getProduct(id) {
-        axios.get(`/api/current/${id}`).then (res => {
+        axios.get(`/api/delete/${id}`).then (res => {
             this.setState({
                 name: res.name,
                 price: res.price,
