@@ -26,23 +26,13 @@ export default class Form extends React.Component {
     getProduct(id) {
         axios.get(`/api/current/${id}`).then (res => {
             console.log(res.data)
-            console.log(res.data[0].name)
-            this.setState({
-                name: res.data[0].name,
-                price: res.data[0].price,
-                img: res.data[0].img
-            })
+            console.log(res.data.name)
+            this.setState(
+                res.data
+            )
         })
     }
-    updateProduct(id) {
-        axios.put(`/api/update/${id}`, {
-            name: this.state.name,
-            price: this.state.price,
-            image: this.state.img
-        }).then (res => {
-            this.props.getInventory()
-        })
-    }
+
     addProduct() {
         axios.post('/api/product', {
             name: this.state.name,

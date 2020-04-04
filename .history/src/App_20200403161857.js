@@ -22,6 +22,7 @@ export default class App extends React.Component {
   }
   getInventory() {
     axios.get('/api/inventory').then(res => {
+      console.log(res.data)
       this.setState({
         inventory: res.data
       })

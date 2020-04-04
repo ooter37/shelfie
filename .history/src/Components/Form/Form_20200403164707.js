@@ -34,7 +34,7 @@ export default class Form extends React.Component {
             })
         })
     }
-    updateProduct(id) {
+    updateProduct() {
         axios.put(`/api/update/${id}`, {
             name: this.state.name,
             price: this.state.price,

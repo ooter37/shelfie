@@ -36,6 +36,7 @@ export default class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.inventory)
   return (
     <div className="App">
       <Header/>

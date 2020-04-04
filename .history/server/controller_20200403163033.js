@@ -35,7 +35,7 @@ module.exports = {
     },
     updateProduct: (req,res,next) => {
         const db = req.app.get('db')
-        db.update_product(req.params.id, [req.body.name, req.body.price, req.body.image]).then(() => {
+        db.update_product(req.params.id, [red.body.name, req.body.price, req.body.image]).then(() => {
             res.sendStatus(200)
         }).catch(err => {
             res.status(500).send('Problem with update product endpoint')

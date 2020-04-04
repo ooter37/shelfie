@@ -11,7 +11,7 @@ export default class App extends React.Component {
     super()
     this.state = {
       inventory: [],
-      selected: null
+      selected: 0
     }
     this.getInventory = this.getInventory.bind(this)
     this.setSelected = this.setSelected.bind(this)
@@ -36,6 +36,7 @@ export default class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.inventory)
   return (
     <div className="App">
       <Header/>
