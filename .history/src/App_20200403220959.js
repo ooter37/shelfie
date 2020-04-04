@@ -15,6 +15,8 @@ export default class App extends React.Component {
     }
     this.getInventory = this.getInventory.bind(this)
     this.setSelected = this.setSelected.bind(this)
+    this.updateProduct = this.updateProduct.bind(this)
+
   }
 
   componentDidMount() {

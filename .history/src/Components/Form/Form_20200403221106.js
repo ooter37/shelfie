@@ -51,7 +51,6 @@ export default class Form extends React.Component {
             image: this.state.img
         }).then (res => {
             this.props.getInventory()
-            this.resetButton()
         }).catch(err => console.log(err))
     }
 

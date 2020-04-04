@@ -51,7 +51,6 @@ export default class Form extends React.Component {
             image: this.state.img
         }).then (res => {
             this.props.getInventory()
-            this.resetButton()
         }).catch(err => console.log(err))
     }
 
@@ -111,7 +110,7 @@ export default class Form extends React.Component {
                     placeholder='Image URL'
                 ></input>
                 <button onClick={this.addProduct}>Add to Inventory</button>
-                <button onClick={this.updateProduct}>Save Changes</button>
+                <button onClick={this.props.updateProduct}>Save Changes</button>
                 <button 
                     onClick={this.resetButton}
                 >Clear</button>
