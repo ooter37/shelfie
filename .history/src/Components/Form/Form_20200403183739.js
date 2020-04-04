@@ -14,7 +14,7 @@ export default class Form extends React.Component {
         this.imgChangeHandler = this.imgChangeHandler.bind(this)
         this.resetButton = this.resetButton.bind(this)
         this.addProduct = this.addProduct.bind(this)
-        this.getProduct = this.getProduct.bind(this)
+        this.getInventory = this.getInventory.bind(this)
     }
 
     componentDidUpdate(oldProps) {

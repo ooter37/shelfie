@@ -36,7 +36,7 @@ export default class App extends React.Component {
         price: this.state.price,
         image: this.state.img
     }).then (res => {
-        this.getInventory()
+        this.props.getInventory()
     })
 }
   setSelected(edit) {

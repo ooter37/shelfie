@@ -15,6 +15,7 @@ export default class Form extends React.Component {
         this.resetButton = this.resetButton.bind(this)
         this.addProduct = this.addProduct.bind(this)
         this.getProduct = this.getProduct.bind(this)
+        this.updateProduct = this.updateProduct.bind(this)
     }
 
     componentDidUpdate(oldProps) {
@@ -90,7 +91,7 @@ export default class Form extends React.Component {
                     placeholder='Image URL'
                 ></input>
                 <button onClick={this.addProduct}>Add to Inventory</button>
-                <button onClick={this.props.updateProduct(this.props.selected)}>Save Changes</button>
+                <button onClick={this.updateProduct(this.state.id)}>Save Changes</button>
                 <button 
                     onClick={this.resetButton}
                 >Clear</button>

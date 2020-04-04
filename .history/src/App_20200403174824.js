@@ -15,8 +15,6 @@ export default class App extends React.Component {
     }
     this.getInventory = this.getInventory.bind(this)
     this.setSelected = this.setSelected.bind(this)
-    this.updateProduct = this.updateProduct.bind(this)
-
   }
 
   componentDidMount() {
@@ -30,19 +28,11 @@ export default class App extends React.Component {
       }).catch(err => console.log(err))
   }
 
-  updateProduct(id) {
-    axios.put(`/api/update/${id}`, {
-        name: this.state.name,
-        price: this.state.price,
-        image: this.state.img
-    }).then (res => {
-        this.getInventory()
-    })
-}
   setSelected(edit) {
     this.setState({
       selected: edit
     })
+    console.log(this.state.selected)
   }
 
   render() {
@@ -53,7 +43,6 @@ export default class App extends React.Component {
         <Form
           getInventory={this.getInventory}
           selected={this.state.selected}
-          updateProduct={this.updateProduct}
           />
         <Dashboard 
         inventory={this.state.inventory}

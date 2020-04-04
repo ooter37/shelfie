@@ -36,7 +36,7 @@ export default class App extends React.Component {
         price: this.state.price,
         image: this.state.img
     }).then (res => {
-        this.getInventory()
+        this.props.getInventory()
     })
 }
   setSelected(edit) {
@@ -53,12 +53,12 @@ export default class App extends React.Component {
         <Form
           getInventory={this.getInventory}
           selected={this.state.selected}
-          updateProduct={this.updateProduct}
           />
         <Dashboard 
         inventory={this.state.inventory}
         getInventory={this.getInventory}
         setSelected={this.setSelected}
+        updateProduct={this.updateProduct}
         />
       </div>
     </div>

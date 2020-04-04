@@ -40,7 +40,7 @@ export default class Form extends React.Component {
             price: this.state.price,
             image: this.state.img
         }).then(res => {
-            this.props.getInventory()
+            // this.props.getInventory()
             this.resetButton()
         })
     }

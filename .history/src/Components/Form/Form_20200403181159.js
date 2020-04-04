@@ -6,8 +6,9 @@ export default class Form extends React.Component {
         super(props)
         this.state = {
             name: '',
-            price: 0,
-            img: ''
+            price: '',
+            // img: '',
+            // id: ''
         }
         this.nameChangeHandler = this.nameChangeHandler.bind(this)
         this.priceChangeHandler = this.priceChangeHandler.bind(this)
@@ -15,10 +16,11 @@ export default class Form extends React.Component {
         this.resetButton = this.resetButton.bind(this)
         this.addProduct = this.addProduct.bind(this)
         this.getProduct = this.getProduct.bind(this)
+        this.updateProduct = this.updateProduct.bind(this)
     }
 
-    componentDidUpdate(oldProps) {
-        if (oldProps.selected !== this.props.selected) {
+    componentDidUpdate(oldProps, oldState) {
+        if (oldProps !== this.props) {
             this.getProduct(this.props.selected)
         } 
     }
@@ -33,7 +35,15 @@ export default class Form extends React.Component {
             })
         })
     }
-
+    updateProduct(id) {
+        axios.put(`/api/update/${id}`, {
+            name: this.state.name,
+            price: this.state.price,
+            image: this.state.img
+        }).then (res => {
+            this.props.getInventory()
+        })
+    }
     addProduct() {
         axios.post('/api/product', {
             name: this.state.name,
@@ -90,7 +100,7 @@ export default class Form extends React.Component {
                     placeholder='Image URL'
                 ></input>
                 <button onClick={this.addProduct}>Add to Inventory</button>
-                <button onClick={this.props.updateProduct(this.props.selected)}>Save Changes</button>
+                {/* <button onClick={this.updateProduct(this.state.id)}>Save Changes</button> */}
                 <button 
                     onClick={this.resetButton}
                 >Clear</button>
