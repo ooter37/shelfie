@@ -42,7 +42,7 @@ export default class Form extends React.Component {
         }).then (res => {
             this.props.getInventory()
             this.resetButton()
-            this.props.showAddHideEdit()
+            this.props.hideAddShowEdit()
         }).catch(err => console.log(err))
     }
 

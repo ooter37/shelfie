@@ -59,7 +59,7 @@ export default class App extends React.Component {
           updateProduct={this.updateProduct}
           hideAdd={this.state.hideAdd}
           hideEdit={this.state.hideEdit}
-          showAddHideEdit={this.showAddHideEdit}
+          showAddHideEdit={this.state.showAddHideEdit}
           />
         <Dashboard 
         inventory={this.state.inventory}

@@ -17,13 +17,13 @@ export default class App extends React.Component {
     }
     this.getInventory = this.getInventory.bind(this)
     this.setSelected = this.setSelected.bind(this)
-    this.showAddHideEdit = this.showAddHideEdit.bind(this)
+    this.hideAddShowEdit = this.hideAddShowEdit.bind(this)
   }
 
-  showAddHideEdit() {
+  hideAddShowEdit() {
     this.setState({
-        hideAdd: false,
-        hideEdit: true
+        hideAdd: true,
+        hideEdit: false
     })
 }
 
@@ -59,7 +59,6 @@ export default class App extends React.Component {
           updateProduct={this.updateProduct}
           hideAdd={this.state.hideAdd}
           hideEdit={this.state.hideEdit}
-          showAddHideEdit={this.showAddHideEdit}
           />
         <Dashboard 
         inventory={this.state.inventory}

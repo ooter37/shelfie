@@ -8,7 +8,9 @@ export default class Form extends React.Component {
             name: '',
             price: 0,
             img: '',
-            formSelected: null
+            formSelected: null,
+            hideAdd: false,
+            hideEdit: true
         }
         this.nameChangeHandler = this.nameChangeHandler.bind(this)
         this.priceChangeHandler = this.priceChangeHandler.bind(this)
@@ -17,6 +19,14 @@ export default class Form extends React.Component {
         this.addProduct = this.addProduct.bind(this)
         this.getProduct = this.getProduct.bind(this)
         this.updateProduct = this.updateProduct.bind(this)
+        this.hideAddShowEdit = this.hideAddShowEdit.bind(this)
+    }
+
+    hideAddShowEdit() {
+        this.setState({
+            hideAdd: true,
+            hideEdit: false
+        })
     }
 
     componentDidUpdate(oldProps) {
@@ -42,7 +52,6 @@ export default class Form extends React.Component {
         }).then (res => {
             this.props.getInventory()
             this.resetButton()
-            this.props.showAddHideEdit()
         }).catch(err => console.log(err))
     }
 
@@ -101,8 +110,8 @@ export default class Form extends React.Component {
                     onChange={e => this.imgChangeHandler(e)}
                     placeholder='Image URL'
                 ></input>
-                <button hidden={this.props.hideAdd} onClick={this.addProduct}>Add to Inventory</button>
-                <button hidden={this.props.hideEdit} onClick={this.updateProduct}>Save Changes</button>
+                <button hidden={this.state.hideAdd} onClick={this.addProduct}>Add to Inventory</button>
+                <button hidden={this.state.hideEdit} onClick={this.updateProduct}>Save Changes</button>
                 <button 
                     onClick={this.resetButton}
                 >Clear</button>
