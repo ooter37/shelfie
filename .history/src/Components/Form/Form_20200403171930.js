@@ -8,9 +8,8 @@ export default class Form extends React.Component {
             name: '',
             price: '',
             img: '',
-            id: '',
-            add: true,
-            edit: false
+            add: '',
+            edit: "hidden='true'"
         }
         this.nameChangeHandler = this.nameChangeHandler.bind(this)
         this.priceChangeHandler = this.priceChangeHandler.bind(this)
@@ -18,13 +17,12 @@ export default class Form extends React.Component {
         this.resetButton = this.resetButton.bind(this)
         this.addProduct = this.addProduct.bind(this)
         this.getProduct = this.getProduct.bind(this)
-        this.updateProduct = this.updateProduct.bind(this)
     }
 
     componentDidUpdate(oldProps, oldState) {
         if (oldProps !== this.props) {
             this.getProduct(this.props.selected)
-        } 
+        }
     }
 
     getProduct(id) {
@@ -34,15 +32,12 @@ export default class Form extends React.Component {
             this.setState({
                 name: res.data[0].name,
                 price: res.data[0].price,
-                img: res.data[0].img,
-                id: res.data[0].id,
-                add: false,
-                edit: true
+                img: res.data[0].img
             })
         })
     }
-    updateProduct(idid) {
-        axios.put(`/api/update/${idid}`, {
+    updateProduct(id) {
+        axios.put(`/api/update/${id}`, {
             name: this.state.name,
             price: this.state.price,
             image: this.state.img
@@ -105,8 +100,8 @@ export default class Form extends React.Component {
                     onChange={e => this.imgChangeHandler(e)}
                     placeholder='Image URL'
                 ></input>
-                <button hidden={this.state.edit} onClick={this.addProduct}>Add to Inventory</button>
-                <button hidden={this.state.add} onClick={this.updateProduct(this.state.id)}>Save Changes</button>
+                <button {this.state.edit} onClick={this.addProduct}>Add to Inventory</button>
+                <button onClick={this.addProduct}>Edit Product</button>
                 <button 
                     onClick={this.resetButton}
                 >Clear</button>

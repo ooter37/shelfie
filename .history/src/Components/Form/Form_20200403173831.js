@@ -6,9 +6,9 @@ export default class Form extends React.Component {
         super(props)
         this.state = {
             name: '',
-            price: '',
+            price: 0,
             img: '',
-            id: '',
+            id: 0,
             add: true,
             edit: false
         }
@@ -41,8 +41,8 @@ export default class Form extends React.Component {
             })
         })
     }
-    updateProduct(idid) {
-        axios.put(`/api/update/${idid}`, {
+    updateProduct(id) {
+        axios.put(`/api/update/${id}`, {
             name: this.state.name,
             price: this.state.price,
             image: this.state.img

@@ -8,7 +8,7 @@ export default class Form extends React.Component {
             name: '',
             price: '',
             img: '',
-            id: '',
+            id: 0,
             add: true,
             edit: false
         }
@@ -41,8 +41,8 @@ export default class Form extends React.Component {
             })
         })
     }
-    updateProduct(idid) {
-        axios.put(`/api/update/${idid}`, {
+    updateProduct(id) {
+        axios.put(`/api/update/${id}`, {
             name: this.state.name,
             price: this.state.price,
             image: this.state.img
@@ -106,7 +106,7 @@ export default class Form extends React.Component {
                     placeholder='Image URL'
                 ></input>
                 <button hidden={this.state.edit} onClick={this.addProduct}>Add to Inventory</button>
-                <button hidden={this.state.add} onClick={this.updateProduct(this.state.id)}>Save Changes</button>
+                <button hidden={this.state.add} onClick={this.updateProduct}>Save Changes</button>
                 <button 
                     onClick={this.resetButton}
                 >Clear</button>
