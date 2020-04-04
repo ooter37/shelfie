@@ -32,7 +32,7 @@ export default class App extends React.Component {
   }
 
   updateProduct() {
-    axios.put(`/api/update/${}`, {
+    axios.put(`/api/update/${this.state.selected}`, {
         name: this.state.name,
         price: this.state.price,
         image: this.state.img

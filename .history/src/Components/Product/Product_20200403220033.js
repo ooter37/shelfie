@@ -19,7 +19,7 @@ export default class Product extends React.Component {
                 >delete</button>
                 <button
                     onClick={() => {
-                        setSelected([name, price, img, id])
+                        setSelected([name, price, img])
                     }}
                 >edit</button>
             </div>

@@ -20,7 +20,7 @@ export default class Form extends React.Component {
 
     componentDidUpdate(oldProps) {
         if (oldProps.selected !== this.props.selected) {
-            this.getProduct(this.state.formSelected)
+            this.getProduct(CHANGE THIS TO FORM SELECTED)
         } 
     }
 
@@ -34,12 +34,11 @@ export default class Form extends React.Component {
     //         })
     //     })
     // }
-    getProduct() {
+    getProduct(id) {
         this.setState({
             name: this.props.selected[0],
             price: this.props.selected[1],
             img: this.props.selected[2],
-            formSelected: this.props.selected[3]
         })
     }
 

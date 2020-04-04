@@ -20,7 +20,7 @@ export default class Form extends React.Component {
 
     componentDidUpdate(oldProps) {
         if (oldProps.selected !== this.props.selected) {
-            this.getProduct(this.state.formSelected)
+            this.getProduct(CHANGE THIS TO FORM SELECTED)
         } 
     }
 
