@@ -7,8 +7,7 @@ export default class Form extends React.Component {
         this.state = {
             name: '',
             price: 0,
-            img: '',
-            formSelected: null
+            img: ''
         }
         this.nameChangeHandler = this.nameChangeHandler.bind(this)
         this.priceChangeHandler = this.priceChangeHandler.bind(this)

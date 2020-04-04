@@ -11,7 +11,7 @@ export default class App extends React.Component {
     super()
     this.state = {
       inventory: [],
-      selected: 0
+      selected: null
     }
     this.getInventory = this.getInventory.bind(this)
     this.setSelected = this.setSelected.bind(this)
@@ -22,7 +22,6 @@ export default class App extends React.Component {
   componentDidMount() {
     this.getInventory()
   }
-  
   getInventory() {
     axios.get('/api/inventory').then(res => {
       this.setState({
@@ -31,14 +30,16 @@ export default class App extends React.Component {
       }).catch(err => console.log(err))
   }
 
-  updateProduct() {
-    axios.put(`/api/update/${this.state.selected}`, {
+  updateProduct(id) {
+    axios.put(`/api/update/${id}`, {
         name: this.state.name,
         price: this.state.price,
         image: this.state.img
     }).then (res => {
         this.getInventory()
-    }).catch(err => console.log(err))
+    }).catch(err => {
+      console.log(err)
+    })
 }
   setSelected(edit) {
     this.setState({

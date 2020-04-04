@@ -43,7 +43,7 @@ export default class App extends React.Component {
   setSelected(edit) {
     this.setState({
       selected: edit
-    })
+    }).catch(err => console.log(err))
   }
 
   render() {

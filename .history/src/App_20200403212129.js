@@ -31,8 +31,8 @@ export default class App extends React.Component {
       }).catch(err => console.log(err))
   }
 
-  updateProduct() {
-    axios.put(`/api/update/${this.state.selected}`, {
+  updateProduct(id) {
+    axios.put(`/api/update/${id}`, {
         name: this.state.name,
         price: this.state.price,
         image: this.state.img

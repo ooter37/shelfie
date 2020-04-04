@@ -7,8 +7,7 @@ export default class Form extends React.Component {
         this.state = {
             name: '',
             price: 0,
-            img: '',
-            formSelected: null
+            img: ''
         }
         this.nameChangeHandler = this.nameChangeHandler.bind(this)
         this.priceChangeHandler = this.priceChangeHandler.bind(this)
@@ -91,7 +90,7 @@ export default class Form extends React.Component {
                     placeholder='Image URL'
                 ></input>
                 <button onClick={this.addProduct}>Add to Inventory</button>
-                <button onClick={this.props.updateProduct}>Save Changes</button>
+                {/* <button onClick={this.props.updateProduct(this.props.selected)}>Save Changes</button> */}
                 <button 
                     onClick={this.resetButton}
                 >Clear</button>
